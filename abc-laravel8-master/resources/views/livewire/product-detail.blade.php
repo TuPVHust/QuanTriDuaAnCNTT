@@ -123,7 +123,7 @@
                         </div>
                         <div class="tab-pane" id="tabs-3" role="tabpanel">
                             <div class="product__details__tab__desc">
-                                <h6>Products Infomation</h6>
+                                <h6>Products Infomation thông tin sản phấm </h6>
                                 <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
                                     Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.
                                     Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam

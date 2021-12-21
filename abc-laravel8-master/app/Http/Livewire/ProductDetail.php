@@ -15,6 +15,6 @@ class ProductDetail extends Component
     public function render()
     {
         $product = Sanpham::where('id',$this->id)->first();
-        return view('livewire.product-detail',compact('product'));
+        return view('livewire.product-detail',compact('product'))->layout('layouts.base');
     }
 }

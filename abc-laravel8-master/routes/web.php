@@ -55,7 +55,7 @@ Route::get('/shop', function () {
 Route::get('/cart', function () {
     return view('site.cart');
 })->name('cart');
-
-Route::get('/productdetail/{id}', function () {
-    return view('site.productdetail');
-})->name('productdetail');
+Route::get('/productdetail/{param}',App\Http\Livewire\ProductDetail::class)->name('productdetail');
+// Route::get('/productdetail/{id}', function () {
+//     return view('site.productdetail');
+// })->name('productdetail');

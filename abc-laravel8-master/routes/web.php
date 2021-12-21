@@ -28,8 +28,8 @@ Route::get('/admin/login', [AdminLoginController::class,'getlogin'])->name('admi
 Route::post('/admin/login', [AdminLoginController::class,'postlogin'])->name('admin.postlogin');
 Route::get('/admin/logout', [AdminLoginController::class,'getlogout'])->name('admin.getlogout');
 
-
-Route::prefix('admin')->name('admin.')->middleware([CheckAdminLogin::class])->group(function(){
+// ->middleware([CheckAdminLogin::class])
+Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/', [AdminLoginController::class, 'dashboard'])->name('dashboard');
 
     Route::get('/file', function () {
@@ -56,3 +56,6 @@ Route::get('/cart', function () {
     return view('site.cart');
 })->name('cart');
 
+Route::get('/productdetail/{id}', function () {
+    return view('site.productdetail');
+})->name('productdetail');

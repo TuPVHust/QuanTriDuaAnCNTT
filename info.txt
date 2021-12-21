@@ -1,6 +1,0 @@
-test push
-sdfsdf
-sdf
-sd
-test pull
-dfhjdk

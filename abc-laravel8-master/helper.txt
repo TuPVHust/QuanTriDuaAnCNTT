@@ -1,0 +1,15 @@
+1. setup vendor
+- composer install
+- npm install //neu dung npm package
+2. copy environment
+- copy .env.example .env
+3. Generate key
+- php artisan key:generate
+
+Tham khao:
+- https://viblo.asia/p/cach-cai-dat-du-an-laravel-clone-tu-github-63vKjkpkZ2R
+- https://itzone.com.vn/vi/article/cach-ket-noi-du-an-laravel-tren-github/
+- https://support.acquia.com/hc/en-us/articles/360005257234-Introduction-to-htaccess-rewrite-rules
+- https://www.youtube.com/watch?v=QccrkDTPAMI&list=PLFWDoeAHRLTavL53RywOPAlQ45JRh0NI8
+- https://www.youtube.com/watch?v=xfSks-NdHPw&list=PLz_YkiqIHesvPtvLl2Wz5FtuW44dBt199
+- https://github.com/surfsidemedia/Laravel-8-E-Commerce

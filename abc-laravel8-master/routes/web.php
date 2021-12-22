@@ -59,3 +59,4 @@ Route::get('/productdetail/{param}',App\Http\Livewire\ProductDetail::class)->nam
 // Route::get('/productdetail/{id}', function () {
 //     return view('site.productdetail');
 // })->name('productdetail');
+Route::get('/checkout',App\Http\Livewire\CheckOut::class)->name('checkout');

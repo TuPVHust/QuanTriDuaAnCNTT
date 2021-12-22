@@ -10,7 +10,9 @@ class ShoppingCart extends Component
 {
     public function delete($rowId)
     {
+
         Cart::remove($rowId);
+
     }
 
     public function quantitychange($rowId, $value)
@@ -26,6 +28,7 @@ class ShoppingCart extends Component
     public function quantityincrease($rowId)
     {
         Cart::update($rowId, Cart::get($rowId)->qty+1);
+
     }
 
     public function render()

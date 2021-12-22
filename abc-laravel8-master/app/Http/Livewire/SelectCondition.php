@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Nhomsanpham;
 use App\Models\Sanpham;
-
+use Cart;
 class SelectCondition extends Component
 {
     public $selectionCatid=null;
@@ -14,6 +14,7 @@ class SelectCondition extends Component
     public $pMax;
     public $minPrice;
     public $maxPrice;
+
 
     public function mount(){
 

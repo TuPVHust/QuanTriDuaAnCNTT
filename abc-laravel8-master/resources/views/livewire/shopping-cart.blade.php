@@ -75,11 +75,12 @@
           <div class="shoping__checkout">
             <h5>Cart Total</h5>
             <ul>
+
               <li>Subtotal <span>{{Cart::subtotal(0)}}</span></li>
               <li>Tax <span>{{Cart::tax(0)}}</span></li>
               <li>Total <span>{{Cart::total(0)}}</span></li>
             </ul>
-            <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
+            <a href="{{route('checkout')}}" class="primary-btn">PROCEED TO CHECKOUT</a>
           </div>
         </div>
       </div>

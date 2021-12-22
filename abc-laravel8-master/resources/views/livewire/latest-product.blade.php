@@ -5,7 +5,7 @@
         <div class="latest-product__slider owl-carousel">
           <div class="latest-prdouct__slider__item">
             @foreach ($products as $i )
-            <a href="#" class="latest-product__item">
+            <a href="#" wire:click="store({{$i->id}},'{{$i->ten}}', {{$i->gia}})"  class="latest-product__item">
               <div class="latest-product__item__pic">
                 <img src="{{url('uploads')}}/{{$i->anh}}" alt="">
               </div>

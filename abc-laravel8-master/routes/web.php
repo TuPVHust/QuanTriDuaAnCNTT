@@ -29,7 +29,7 @@ Route::post('/admin/login', [AdminLoginController::class,'postlogin'])->name('ad
 Route::get('/admin/logout', [AdminLoginController::class,'getlogout'])->name('admin.getlogout');
 
 // ->middleware([CheckAdminLogin::class])
-Route::prefix('admin')->name('admin.')->group(function(){
+Route::prefix('admin')->name('admin.')->middleware([CheckAdminLogin::class])->group(function(){
     Route::get('/', [AdminLoginController::class, 'dashboard'])->name('dashboard');
 
     Route::get('/file', function () {
@@ -56,7 +56,5 @@ Route::get('/cart', function () {
     return view('site.cart');
 })->name('cart');
 Route::get('/productdetail/{param}',App\Http\Livewire\ProductDetail::class)->name('productdetail');
-// Route::get('/productdetail/{id}', function () {
-//     return view('site.productdetail');
-// })->name('productdetail');
+
 Route::get('/checkout',App\Http\Livewire\CheckOut::class)->name('checkout');

@@ -41,7 +41,7 @@
           </ul>
         </div>
         <div class="product__item__text">
-          <h6><a href="#">{{$product->ten}}</a></h6>
+          <h6><a href="{{route('productdetail',$product->id)}}">{{$product->ten}}</a></h6>
           <h5>
               @if ($product->giaban)
                 {{number_format($product->giaban,0)}} * <del class="font-weight-light"> {{number_format($product->gia,0)}} </del>

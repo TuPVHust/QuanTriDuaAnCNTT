@@ -22,7 +22,44 @@
     <link rel="stylesheet" href="{{url('site')}}/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="{{url('site')}}/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="{{url('site')}}/css/style.css" type="text/css">
+    <style>
+                    /* .body1 {
+                background-color: #eee
+            } */
 
+            .bdge {
+                height: 21px;
+                background-color: orange;
+                color: #fff;
+                font-size: 11px;
+                padding: 8px;
+                border-radius: 4px;
+                line-height: 3px
+            }
+
+            .comments {
+                text-decoration: underline;
+                text-underline-position: under;
+                cursor: pointer
+            }
+
+            .dot {
+                height: 7px;
+                width: 7px;
+                margin-top: 3px;
+                background-color: #bbb;
+                border-radius: 50%;
+                display: inline-block
+            }
+
+            .hit-voting:hover {
+                color: blue
+            }
+
+            .hit-voting {
+                cursor: pointer
+            }
+    </style>
     <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> -->
 
     @livewireStyles

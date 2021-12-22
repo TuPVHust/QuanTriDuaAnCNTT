@@ -31,7 +31,7 @@ class CheckOut extends Component
 
 
         $order = new Order();
-        $order->user_id = 12; //Auth::user()->id;
+        $order->user_id = Auth::user()->id;
         $order->subtotal = Cart::Subtotal(0);//session()->get('checkout')['subtotal'];
        // $order->discount = Cart::Total(0); //session()->get('checkout')['discount'];
         $order->tax = Cart::Tax(0);//session()->get('checkout')['tax'];

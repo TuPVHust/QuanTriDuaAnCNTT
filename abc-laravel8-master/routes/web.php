@@ -4,10 +4,12 @@ use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\NhomsanphamController;
 use App\Http\Controllers\SanphamController;
 use App\Http\Controllers\UserManagementController;
+use App\Http\Controllers\RegistrationController;
 use App\Http\Middleware\CheckAdminLogin;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Livewire\TestComponent;
+use App\Http\Middleware\CheckCustomer;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,4 +59,7 @@ Route::get('/cart', function () {
 })->name('cart');
 Route::get('/productdetail/{param}',App\Http\Livewire\ProductDetail::class)->name('productdetail');
 
-Route::get('/checkout',App\Http\Livewire\CheckOut::class)->name('checkout');
+Route::get('/checkout',App\Http\Livewire\CheckOut::class)->name('checkout')->middleware([CheckCustomer::class]);
+
+Route::get("/register", [RegistrationController::class, 'create']);
+Route::post("/register/create", [RegistrationController::class, 'store']);

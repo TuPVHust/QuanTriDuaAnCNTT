@@ -26,23 +26,13 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="checkout__input">
-                                <p>Country<span>*</span></p>
-                                <input id="country" type="text" name="country" value="" placeholder="United States" wire:model="country">
-                            </div> --}}
+
                             <div class="checkout__input">
                                 <p>Address<span>*</span></p>
 
                                 <input id="address" type="text" name="address" value="" placeholder="Your name" wire:model="address" >
                             </div>
-                            {{-- <div class="checkout__input">
-                                <p>Town/City<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Country/State<span>*</span></p>
-                                <input type="text">
-                            </div> --}}
+
                             <div class="checkout__input">
                                 <p>Postcode / ZIP<span>*</span></p>
                                 <input id="zip-code" type="number" name="zip-code" value="" placeholder="Your postal code" wire:model="zipcode">
@@ -61,31 +51,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="checkout__input__checkbox">
-                                <label for="acc">
-                                    Create an account?
-                                    <input type="checkbox" id="acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <p>Create an account by entering the information below. If you are a returning customer
-                                please login at the top of the page</p>
-                            <div class="checkout__input">
-                                <p>Account Password<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="diff-acc">
-                                    Ship to a different address?
-                                    <input type="checkbox" id="diff-acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Order notes<span>*</span></p>
-                                <input type="text"
-                                    placeholder="Notes about your order, e.g. special notes for delivery.">
-                            </div> --}}
+
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">

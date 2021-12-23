@@ -30,27 +30,42 @@ class CheckOut extends Component
         // ]);
 
 
-        $order = new Order();
-        $order->user_id = Auth::user()->id;
-        $order->subtotal = Cart::Subtotal(0);//session()->get('checkout')['subtotal'];
-       // $order->discount = Cart::Total(0); //session()->get('checkout')['discount'];
-        $order->tax = Cart::Tax(0);//session()->get('checkout')['tax'];
-        $order->total = Cart::Total(0);
-        $order->firstname= $this->firstname;
-        $order->lastname= $this->lastname;
-        $order->email= $this->email;
-        $order->phone= $this->phone;
-        // $order->line1= $this->line1;
-        // $order->line2= $this->line2;
-        // $order->city= $this->city;
-        // $order->provine= $this->provine;
-        $order->address= $this->address;
-        $order->zipcode= $this->zipcode;
-        dump($order);
-        // dd($order);
-        // $order->status = "ordered";
-        // $order->is_shipping_different = $this->ship_to_different ? 1:0;
-        // $order->save();
+
+           $order = new Order();
+         $order->user_id = Auth::user()->id;
+         $order->subtotal = 1213;
+         $order->tax = 123;
+         $order->total = Cart::Total();
+         $order->firstname= $this->firstname;
+         $order->lastname= $this->lastname;
+         $order->email= $this->email;
+         $order->phone= $this->phone;
+
+         $order->address= $this->address;
+         $order->zipcode= $this->zipcode;
+
+
+
+         $order->save();
+            $items =Cart::content();
+            foreach ($items as $i) {
+                $order_item = new OrderItem();
+
+                $order_item->product_id= $i->id;
+                $order_item->order_id= $order->id;
+                $order_item->price= $i->price;
+                $order_item->quantity= $i->qty;
+                $order_item->save();
+
+            }
+            Cart::destroy();
+            return redirect()->route('home');
+
+
+
+
+
+
 
     }
     public function render()

@@ -29,9 +29,17 @@ class AdminLoginController extends Controller
         ];
 
         if (Auth::attempt($login,$request->chkRemember)){
+            $user = Auth::user();
             $request->session()->regenerate();
+                if ((($user->level==0))) {
+                    return redirect()->intended(route('admin.dashboard'));
+                }
+               else{
+                    return redirect()->intended(route('home'));
+                }
 
-            return redirect()->intended(route('admin.dashboard'));
+
+
         }
         else{
             return back()->withErrors(['message'=> 'Email hay Password không chính xác']);

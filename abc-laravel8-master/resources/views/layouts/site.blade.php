@@ -59,6 +59,7 @@
             </div>
             <div class="header__top__right__auth">
                 <a href="{{route('admin.getlogin')}}"><i class="fa fa-user"></i> Login</a>
+                <a  href="{{route('admin.getlogout')}}"><i class="fa fa-user"></i> LogOut</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -125,6 +126,7 @@
                             </div>
                             <div class="header__top__right__auth">
                                 <a  href="{{route('admin.getlogin')}}"><i class="fa fa-user"></i> Login</a>
+                                <a  href="{{route('admin.getlogout')}}"><i class="fa fa-user"></i> LogOut</a>
                             </div>
                         </div>
                     </div>

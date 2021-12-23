@@ -15,7 +15,7 @@ class ThemThongTinXacAdminCustomerManagerToUser extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //->comment('0: for Admin and 1: for user or customer');
-            $table->tinyInteger('level')->after('password')->default(0)->comment('0: cho admin hay manager và 1: là khách hàng ')->change();
+            $table->smallInteger('level')->after('password')->default(0)->comment('0: cho admin hay manager và 1: là khách hàng ')->change();
         });
     }
 

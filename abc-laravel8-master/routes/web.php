@@ -63,3 +63,9 @@ Route::get('/checkout',App\Http\Livewire\CheckOut::class)->name('checkout')->mid
 
 Route::get("/register", [RegistrationController::class, 'create']);
 Route::post("/register/create", [RegistrationController::class, 'store']);
+// と：とととととととととと:
+//とととととととととととととととととととととと：
+// め　め　めめめめめ
+// // ぽっぴい　ぴぴぴんん
+//  ろ　ろ　と　とつてちた　て　で
+// こ　こ　こ　こ　こ　こ

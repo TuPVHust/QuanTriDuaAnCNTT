@@ -62,11 +62,6 @@ class CheckOut extends Component
             return redirect()->route('home');
 
 
-
-
-
-
-
     }
     public function render()
     {

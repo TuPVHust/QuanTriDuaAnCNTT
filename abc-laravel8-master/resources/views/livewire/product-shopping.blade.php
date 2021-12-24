@@ -99,6 +99,7 @@
         $("#sortbyid").on('change', function(e){
             e.preventDefault();
             @this.set('sortid', e.target.value);
+            // alert(  @this.set('sortid', e.target.value));
         });
     });
 </script>

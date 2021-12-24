@@ -24,4 +24,6 @@
 </section>
 @livewire('product-detail')
 
+
+
 @endsection

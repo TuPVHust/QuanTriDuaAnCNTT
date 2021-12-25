@@ -21,9 +21,13 @@
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
+
                 <div class="product__details__text">
                     <h3>Vetgetable’s tghay đổi Package</h3>
+
                     <div class="product__details__rating">
+                        <div id="rateYo"> </div>
+
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -44,7 +48,7 @@
                     </div>
                     <a href="#"  wire:click.prevent="store({{$product->id}},'{{$product->ten}}', {{$product->gia}})" class="primary-btn">ADD TO CARD</a>
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
-                    <div id="rateYo"></div>
+
                     <ul>
                         <li><b>Availability</b> <span>In Stock</span></li>
                         <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
@@ -137,18 +141,25 @@
 </section>
 
 
-@push('scripts1')
+@push('scripts')
 <script>
- /* Javascript */
 
-//Make sure that the dom is ready
-$(function () {
+    $(function () {
 
- $("#rateYo").rateYo({
-   rating: 0,
-   ratedFill: "#E74C3C",
- });
+        $("#rateYo").rateYo({
+            rating: 3.2,
+        starWidth: "20px"
+        }).on("rateyo.set", function (e, data) {
 
-});
+        alert("The rating is set to " + data.rating + "!");
+        });
+
+    });
+
+
+
+
+
+
 </script>
 @endpush

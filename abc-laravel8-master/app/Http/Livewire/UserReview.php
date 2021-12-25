@@ -13,6 +13,7 @@ class UserReview extends Component
     public $user_id;
     public function danhgia()
     {
+
         $review = new Review();
         $review->rating = $this->rating;
         $review->comment = $this->comment;

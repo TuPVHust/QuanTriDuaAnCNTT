@@ -14,7 +14,7 @@
             <div class="d-flex flex-row add-comment-section mt-4 mb-4">
                 <img class="img-fluid img-responsive rounded-circle mr-2" src="https://i.imgur.com/qdiP4DB.jpg" width="38">
                 <input type="text" class="form-control mr-3" wire:model='comment' placeholder="Add comment">
-                <button class="btn btn-primary" type="button" wire:click.prevent='danhgia'>Comment</button>
+                <button class="btn btn-primary" type="button" wire:click.prevent='danhgia()'>Comment</button>
             </div>
              <div class="commented-section mt-2">
                 <div class="d-flex flex-row align-items-center commented-user">

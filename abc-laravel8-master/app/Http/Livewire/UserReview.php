@@ -11,6 +11,11 @@ class UserReview extends Component
     public $comment;
     public $order_item_id;
     public $user_id;
+    public function storeRating($value1, $value2)
+    {
+        $this->rating = $value1;
+        $this->order_item_id = $value2;
+    } 
     public function danhgia()
     {
 
@@ -19,10 +24,11 @@ class UserReview extends Component
         $review->comment = $this->comment;
         $review->order_item_id = $this->order_item_id;
         $review->user_id = Auth::user()->id;
-        dd($review);
-
-
+        $review->save();
     }
+
+    protected $listeners = ['storeRating',];
+
     public function render()
     {
         return view('livewire.user-review');

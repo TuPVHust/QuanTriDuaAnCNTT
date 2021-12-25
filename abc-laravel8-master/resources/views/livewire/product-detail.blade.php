@@ -4,7 +4,8 @@
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__pic">
                     <div class="product__details__pic__item">
-                        <img class="product__details__pic__item--large" src="{{url('uploads')}}/{{$product->anh}}"></img>
+                        <img class="product__details__pic__item--large"
+                            src="{{ url('uploads') }}/{{ $product->anh }}"></img>
                         {{-- <img class="product__details__pic__item--large"
                             src="img/product/details/{{$product->anh}}" alt=""> --}}
                     </div>
@@ -24,7 +25,6 @@
 
                 <div class="product__details__text">
                     <h3>Vetgetable’s tghay đổi Package</h3>
-
                     <div class="product__details__rating">
                         <div id="rateYo"> </div>
 
@@ -46,7 +46,9 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#"  wire:click.prevent="store({{$product->id}},'{{$product->ten}}', {{$product->gia}})" class="primary-btn">ADD TO CARD</a>
+                    <a href="#"
+                        wire:click.prevent="store({{ $product->id }},'{{ $product->ten }}', {{ $product->gia }})"
+                        class="primary-btn">ADD TO CARD</a>
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
 
                     <ul>
@@ -94,7 +96,7 @@
                                     elementum sed sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus
                                     et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam
                                     vel, ullamcorper sit amet ligula. Proin eget tortor risus.</p>
-                                    <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem
+                                <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem
                                     ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet
                                     elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
                                     porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
@@ -108,11 +110,7 @@
                             <div class="product__details__tab__desc">
                                 <h6>Products Infomation</h6>
                                 <div class="container mt-5 mb-5">
-
-
-                                 @livewire('user-review')
-
-
+                                    @livewire('user-review')
                                 </div>
 
                             </div>
@@ -142,24 +140,18 @@
 
 
 @push('scripts')
-<script>
+    <script>
+        $(function() {
 
-    $(function () {
+            $("#rateYo").rateYo({
+                rating: 3.2,
+                starWidth: "20px"
+            }).on("rateyo.set", function(e, data) {
 
-        $("#rateYo").rateYo({
-            rating: 3.2,
-        starWidth: "20px"
-        }).on("rateyo.set", function (e, data) {
-
-        alert("The rating is set to " + data.rating + "!");
+                // alert("The rating is set to " + data.rating + "!");
+                // });
+                Livewire.emit('storeRating', `${data.rating}`, "{{ $product->id }}");
+            });
         });
-
-    });
-
-
-
-
-
-
-</script>
+    </script>
 @endpush

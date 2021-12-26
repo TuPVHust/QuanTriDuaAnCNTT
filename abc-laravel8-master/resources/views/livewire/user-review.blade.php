@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center row">
     <div class="d-flex flex-column col-md-8">
-        <div class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4">
-            <div class="profile-image"><img class="rounded-circle" src="{{url('uploads')}}/1640142500-sp.jpg" width="70"></div>
+        {{-- <div class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4">
+
             <div class="d-flex flex-column-reverse flex-grow-0 align-items-center votings ml-1"><i class="fa fa-sort-up fa-2x hit-voting"></i><span>127</span><i class="fa fa-sort-down fa-2x hit-voting"></i></div>
             <div class="d-flex flex-column ml-3">
                 <div class="d-flex flex-row post-title">
@@ -9,10 +9,11 @@
                 </div>
                 <div class="d-flex flex-row align-items-center align-content-center post-title"><span class="bdge mr-1">video</span><span class="mr-2 comments">13 comments&nbsp;</span><span class="mr-2 dot"></span><span>6 hours ago</span></div>
             </div>
-        </div>
+        </div> --}}
         <div class="coment-bottom bg-white p-2 px-4">
             <div class="d-flex flex-row add-comment-section mt-4 mb-4">
-                <img class="img-fluid img-responsive rounded-circle mr-2" src="https://i.imgur.com/qdiP4DB.jpg" width="38">
+                <div id="rateYo"> </div>
+                <img class="img-fluid img-responsive rounded-circle mr-2" src="https://adminlte.io/themes/v3/dist/img/user2-160x160.jpg" width="38">
                 <input type="text" class="form-control mr-3" wire:model='comment' placeholder="Add comment">
                 <button class="btn btn-primary" type="button" wire:click.prevent='danhgia()'>Comment</button>
             </div>
@@ -52,3 +53,18 @@
         </div>
     </div>
 </div>
+@push('scripts')
+    <script>
+
+        $(function() {
+
+            $("#rateYo").rateYo({
+                rating: 3.2,
+                starWidth: "20px"
+            }).on("rateyo.set", function(e, data) {
+
+                Livewire.emit('storeRating', `${data.rating}`, "{{ $product->id }}");
+            });
+        });
+    </script>
+@endpush

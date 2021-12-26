@@ -26,14 +26,8 @@
                 <div class="product__details__text">
                     <h3>Vetgetable’s tghay đổi Package</h3>
                     <div class="product__details__rating">
-                        <div id="rateYo"> </div>
-
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                        <span>(18 reviews)</span>
+                        <div id="rateYo1"> </div>
+                        <span>({{$getreview->count() }} review)</span>
                     </div>
                     <div class="product__details__price"></div>
                     <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
@@ -66,7 +60,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-12">
+            <div class="col-lg-12"  wire:ignore>
                 <div class="product__details__tab">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
@@ -110,7 +104,35 @@
                             <div class="product__details__tab__desc">
                                 <h6>Products Infomation</h6>
                                 <div class="container mt-5 mb-5">
-                                    @livewire('user-review')
+
+                                    <div class="d-flex justify-content-center row">
+                                        <div class="d-flex flex-column col-md-8">
+
+                                            <div class="coment-bottom bg-white p-2 px-4">
+                                                <div class="d-flex flex-row add-comment-section mt-4 mb-4">
+                                                    <div id="rateYo"> </div>
+                                                    <img class="img-fluid img-responsive rounded-circle mr-2" src="https://adminlte.io/themes/v3/dist/img/user2-160x160.jpg" width="38">
+                                                    <input type="text" class="form-control mr-3" wire:model='comment' placeholder="Add comment">
+                                                    <button class="btn btn-primary" type="button" wire:click.prevent='danhgia()'>Comment</button>
+                                                </div>
+                                                @if ($getreview)
+                                                    @foreach ($getreview as $item)
+                                                    <div class="commented-section mt-2">
+                                                        <div class="d-flex flex-row align-items-center commented-user">
+                                                            <h5 class="mr-2"> {{ $item->user_id}}</h5><span class="dot mb-1"></span><span class="mb-1 ml-2">4 hours ago</span>
+                                                        </div>
+                                                        <div class="comment-text-sm"><span>{{$item->comment}}</span></div>
+
+                                                    </div>
+                                                    @endforeach
+                                                @else
+
+                                                @endif
+
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
@@ -139,19 +161,31 @@
 </section>
 
 
+
 @push('scripts')
+<script>
+
+             $(function() {
+                 $("#rateYo1").rateYo({
+                     rating: {{$average}},
+                     starWidth: "15px"
+                 });
+             });
+         </script>
+
     <script>
+
         $(function() {
 
             $("#rateYo").rateYo({
-                rating: 3.2,
-                starWidth: "20px"
+                rating: 0,
+                starWidth: "15px"
             }).on("rateyo.set", function(e, data) {
 
-                // alert("The rating is set to " + data.rating + "!");
-                // });
                 Livewire.emit('storeRating', `${data.rating}`, "{{ $product->id }}");
             });
         });
     </script>
+
+
 @endpush

@@ -5,6 +5,8 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Sanpham;
 use Cart;
+use App\Models\Review;
+use Illuminate\Support\Facades\Auth;
 class ProductDetail extends Component
 {
 
@@ -21,9 +23,40 @@ class ProductDetail extends Component
         session()->flash('success','Thêm mới một mục vào rỏ hàng');
         return redirect()->route('cart');
     }
+    public $rating;
+    public $comment;
+    public $order_item_id;
+    public $user_id;
+    public function storeRating($value1, $value2)
+    {
+        $this->rating = $value1;
+        $this->order_item_id = $value2;
+    }
+
+    public function danhgia()
+    {
+        if ($this->rating) {
+        $review = new Review();
+        $review->rating = $this->rating;
+        $review->comment = $this->comment;
+        $review->product_id = $this->order_item_id;
+        $review->user_id = Auth::user()->id;
+        $review->save();
+        return redirect()->route('productdetail',$this->id);
+        }
+
+
+
+    }
+
+    protected $listeners = ['storeRating',];
     public function render()
     {
+
         $product = Sanpham::where('id',$this->id)->first();
-        return view('livewire.product-detail',compact('product'))->layout('layouts.base');
+        $getreview = Review::where('product_id',$this->id)->get();
+        $average =  $getreview->avg('rating');
+
+        return view('livewire.product-detail',compact('product','getreview','average'))->layout('layouts.base');
     }
 }

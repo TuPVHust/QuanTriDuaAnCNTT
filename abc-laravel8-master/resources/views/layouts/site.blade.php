@@ -61,8 +61,12 @@
                 </ul>
             </div>
             <div class="header__top__right__auth">
-                <a href="{{route('admin.getlogin')}}"><i class="fa fa-user"></i> Login</a>
+                @if (Auth::check())
                 <a  href="{{route('admin.getlogout')}}"><i class="fa fa-user"></i> LogOut</a>
+                @else
+                <a class="d-inline" href="{{route('admin.getlogin')}}"><i class="fa fa-user"></i> Login</a>
+                <a class="d-inline" href="{{route('register')}}"><i class="fa fa-user"></i> Register</a>
+                @endif
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -128,8 +132,15 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <a  href="{{route('admin.getlogin')}}"><i class="fa fa-user"></i> Login</a>
+
+                                @if (Auth::check())
                                 <a  href="{{route('admin.getlogout')}}"><i class="fa fa-user"></i> LogOut</a>
+                                @else
+
+                                <a class="d-inline" href="{{route('admin.getlogin')}}"><i class="fa fa-user"></i> Login</a>
+                                <a class="d-inline" href="{{route('register')}}"><i class="fa fa-user"></i> Register</a>
+                                @endif
+
                             </div>
                         </div>
                     </div>

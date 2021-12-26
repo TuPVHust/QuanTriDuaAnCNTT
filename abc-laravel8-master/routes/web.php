@@ -61,7 +61,7 @@ Route::get('/productdetail/{param}',App\Http\Livewire\ProductDetail::class)->nam
 
 Route::get('/checkout',App\Http\Livewire\CheckOut::class)->name('checkout');
 
-Route::get("/register", [RegistrationController::class, 'create']);
+Route::get("/register", [RegistrationController::class, 'create'])->name('register');
 Route::post("/register/create", [RegistrationController::class, 'store']);
 // と：とととととととととと:
 //とととととととととととととととととととととと：

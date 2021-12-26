@@ -7,6 +7,7 @@ use App\Models\Review;
 use Illuminate\Support\Facades\Auth;
 class UserReview extends Component
 {
+    public $product;
     public $rating;
     public $comment;
     public $order_item_id;
@@ -24,7 +25,11 @@ class UserReview extends Component
         $review->comment = $this->comment;
         $review->order_item_id = $this->order_item_id;
         $review->user_id = Auth::user()->id;
-        $review->save();
+        // dd($review);
+        if($review->rating && $review->order_item_id )
+        {
+            $review->save();
+        }   
     }
 
     protected $listeners = ['storeRating',];

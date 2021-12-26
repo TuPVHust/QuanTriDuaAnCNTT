@@ -26,7 +26,7 @@
                 <div class="product__details__text">
                     <h3>Vetgetable’s tghay đổi Package</h3>
                     <div class="product__details__rating">
-                        <div id="rateYo"> </div>
+
 
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -110,9 +110,9 @@
                             <div class="product__details__tab__desc">
                                 <h6>Products Infomation</h6>
                                 <div class="container mt-5 mb-5">
-                                    @livewire('user-review')
+                                    <div id="rateYo"></div>
+                                    @livewire('user-review',['product' => $product])
                                 </div>
-
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-3" role="tabpanel">

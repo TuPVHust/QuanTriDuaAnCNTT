@@ -115,6 +115,11 @@
                                                     <input type="text" class="form-control mr-3" wire:model='comment' placeholder="Add comment">
                                                     <button class="btn btn-primary" type="button" wire:click.prevent='danhgia()'>Comment</button>
                                                 </div>
+                                                <div>@if (session()->has('message'))
+
+                                                    {{ session('message') }}
+
+                                            @endif</div>
                                                 @if ($getreview)
                                                     @foreach ($getreview as $item)
                                                     <div class="commented-section mt-2">

@@ -1,8 +1,10 @@
     <!-- Checkout Section Begin -->
     <section class="checkout spad">
-        <div class="container">
+
+        <div class="container"  >
             <div class="row">
                 <div class="col-lg-12">
+
                     <h6><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click here</a> to enter your code
                     </h6>
                 </div>
@@ -87,6 +89,8 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
+                                <input type="text" name=""  id="txt_name">
+                                    teen bien {{$postCount}}
                                 <button wire:click='placeOder1' type="submit" class="site-btn">PLACE ORDER</button>
                             </div>
                         </div>
@@ -96,3 +100,17 @@
         </div>
     </section>
     <!-- Checkout Section End -->
+    @push('scripts')
+    <script>
+
+       $(document).ready(function() {
+        debugger
+        $("#txt_name").on("change", function(){
+            alert($(this).val());
+
+            Livewire.emit('getdata',$(this).val());
+            debugger
+        });
+        })
+    </script>
+    @endpush

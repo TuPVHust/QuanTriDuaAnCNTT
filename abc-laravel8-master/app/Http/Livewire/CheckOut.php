@@ -9,6 +9,16 @@ use App\Models\OrderItem;
 use Illuminate\Support\Facades\Auth;
 class CheckOut extends Component
 {
+    public $postCount = 'fsfsd';
+
+    protected $listeners = ['getdata',];
+
+    public function getdata($value)
+    {
+        $this->postCount = $value;
+
+    }
+
     public $firstname;
     public $lastname;
     public $email;
@@ -59,13 +69,14 @@ class CheckOut extends Component
 
             }
             Cart::destroy();
-            return redirect()->route('home');
+           // return redirect()->route('home');
 
 
     }
     public function render()
     {
         $items=Cart::content();
-        return view('livewire.check-out',compact('items'))->layout('layouts.base');
+        $postCount = $this->postCount;
+        return view('livewire.check-out',compact('items','postCount'))->layout('layouts.base');
     }
 }

@@ -69,7 +69,7 @@ class CheckOut extends Component
 
             }
             Cart::destroy();
-           // return redirect()->route('home');
+           return redirect()->route('home');
 
 
     }

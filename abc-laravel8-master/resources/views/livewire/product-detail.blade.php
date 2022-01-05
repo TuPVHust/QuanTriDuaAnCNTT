@@ -1,5 +1,15 @@
 <section class="product-details spad">
     <div class="container">
+        <div class="">
+            @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                @if (Session::has('alert-' . $msg))
+                    <div class="alert alert-{{ $msg }} alert-dismissible fade show ">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ Session::get('alert-' . $msg) }}
+                    </div>
+                @endif
+            @endforeach
+        </div>
         <div class="row">
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__pic">
@@ -26,7 +36,7 @@
                 <div class="product__details__text">
                     <h3>Vetgetable’s tghay đổi Package</h3>
                     <div class="product__details__rating">
-                        <div id="rateYo1"> </div>
+                        <div id="rateYoRoot"> </div>
                         <span>({{ $getreview->count() }} review)</span>
                     </div>
                     <div class="product__details__price"></div>
@@ -119,30 +129,28 @@
                                                     <button class="btn btn-primary" type="button"
                                                         wire:click.prevent='danhgia()'>Comment</button>
                                                 </div>
-                                                <div>@if (session()->has('message'))
-
-                                                    {{ session('message') }}
-
-                                            @endif</div>
                                                 @if ($getreview)
                                                     @foreach ($getreview as $item)
                                                         <div class="commented-section mt-2">
                                                             <div
                                                                 class="d-flex flex-row align-items-center commented-user">
-                                                                <h5 class="mr-2"> {{ $item->user_id }}</h5>
+                                                                <h5 class="mr-2"> {{ $item->user->name }}
+                                                                </h5>
                                                                 <span class="dot mb-1"></span><span
-                                                                    class="mb-1 ml-2">4 hours ago</span>
+                                                                    id="rateYo{{ $item->id }}"> </span>
+                                                                <span class="dot mb-1"></span><span
+                                                                    class="mb-1">{{ \Carbon\Carbon::createFromTimestamp(strtotime($item->created_at))->diffForHumans(\Carbon\Carbon::now()) }}</span>
+
                                                             </div>
                                                             <div class="comment-text-sm">
-                                                                <span>{{ $item->comment }}</span></div>
-
+                                                                <span>{{ $item->comment }}</span>
+                                                            </div>
                                                         </div>
+
                                                     @endforeach
                                                 @else
-
+                                                    <div class="text-center">Không có đánh giá nào</div>
                                                 @endif
-
-
                                             </div>
                                         </div>
                                     </div>
@@ -177,21 +185,30 @@
 @push('scripts')
     <script>
         $(function() {
-            $("#rateYo1").rateYo({
+            $("#rateYoRoot").rateYo({
                 rating: {{ $average }},
-                starWidth: "15px"
+                starWidth: "15px",
+                readOnly: true,
             });
         });
     </script>
-
+    @foreach ($getreview as $item)
+        <script>
+            $(function() {
+                $(`#rateYo{{ $item->id }}`).rateYo({
+                    rating: {{ $item->rating }},
+                    starWidth: "15px",
+                    readOnly: true,
+                });
+            });
+        </script>
+    @endforeach
     <script>
         $(function() {
-
             $("#rateYo").rateYo({
                 rating: 0,
                 starWidth: "15px"
             }).on("rateyo.set", function(e, data) {
-
                 Livewire.emit('storeRating', `${data.rating}`, "{{ $product->id }}");
             });
         });

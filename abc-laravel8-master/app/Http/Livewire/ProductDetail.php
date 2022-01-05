@@ -36,27 +36,20 @@ class ProductDetail extends Component
 
     public function danhgia()
     {
-
-
-        if ($this->rating && Auth::user()->id) {
+        if ($this->rating && Auth::check()) {
             $review = new Review();
             $review->user_id = Auth::user()->id;
             $review->rating = $this->rating;
-
             $review->comment = $this->comment;
             $review->product_id = $this->order_item_id;
-          ///  $review->save();
-               // session()->flash('message', 'bình chọn thành công ');
-             //   return redirect()->route('productdetail',$this->id);
-
+            $review->save();
+            session()->flash('alert-success', 'bình chọn thành công ');
+            return redirect()->route('productdetail',$this->id);
         }
-        // return redirect()->route('productdetail',$this->id)
-        // ->with('message','You have no permission for this page!');
-
-
-
-
-
+        else{
+            session()->flash('alert-danger', 'bình chọn thất bại');
+            return redirect()->route('productdetail',$this->id);
+        }
     }
 
     protected $listeners = ['storeRating',];

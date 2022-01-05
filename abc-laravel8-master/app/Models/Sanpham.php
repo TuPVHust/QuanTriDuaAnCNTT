@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Nhomsanpham;
-
+use App\Models\Review;
 class Sanpham extends Model
 {
     use HasFactory;
@@ -14,5 +14,10 @@ class Sanpham extends Model
 
     public function nhomsanpham(){
         return Nhomsanpham::find($this->nhomsanphamid);
+    }
+    public function reviews()
+    {
+        return $this->hasMany(Review::class,'product_id');//collection
+
     }
 }

@@ -37,3 +37,21 @@
     </div>
   </div>
 </div>
+
+{{-- @push('scripts')
+
+            <script>
+                  @foreach ($getreview as $item )
+                 $(function() {
+                    $(`#rateYo{{$item->id}}`).rateYo({
+                    rating: {{ $item->rating}},
+                    starWidth: "15px",
+                    readOnly: true
+                    })
+                    });
+                    @endforeach
+            </script>
+
+
+
+@endpush --}}

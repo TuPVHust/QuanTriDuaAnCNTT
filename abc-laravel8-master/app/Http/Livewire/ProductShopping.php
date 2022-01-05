@@ -36,11 +36,8 @@ class ProductShopping extends Component
         $this->maxPrice=Sanpham::max('gia');
     }
 
-    public function updateSelection($catid, $minPrice, $maxPrice){
-        $this->selectionCatid=$catid;
-        $this->minPrice=$minPrice;
-        $this->maxPrice=$maxPrice;
-        $this->resetPage();
+    public function updateSelection(){
+        dd($this->maxPrice);
     }
 
     public function updatedSortid(){
@@ -98,7 +95,6 @@ class ProductShopping extends Component
                 ->paginate(6);
             }
         }
-
 
         return view('livewire.product-shopping', ['products'=>$products]);
     }

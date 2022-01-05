@@ -89,8 +89,7 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <input type="text" name=""  id="txt_name">
-                                    teen bien {{$postCount}}
+
                                 <button wire:click='placeOder1' type="submit" class="site-btn">PLACE ORDER</button>
                             </div>
                         </div>

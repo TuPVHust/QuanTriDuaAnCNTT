@@ -20,14 +20,10 @@
                             src="img/product/details/{{$product->anh}}" alt=""> --}}
                     </div>
                     <div class="product__details__pic__slider owl-carousel">
+                        @foreach ($images as $data)
                         <img
-                            src="{{url('uploads') }}/bánh gai.jpg" alt=""></img>
-                            <img
-                            src="{{url('uploads') }}/bánh gai.jpg" alt=""></img>
-                            <img
-                            src="{{url('uploads') }}/bánh gai.jpg" alt=""></img>
-                            <img
-                            src="{{url('uploads') }}/bánh gai.jpg" alt=""></img>
+                        src="{{url('uploads') }}/{{$data}}" alt=""></img>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -136,8 +132,8 @@
                                                                 class="d-flex flex-row align-items-center commented-user">
                                                                 <h5 class="mr-2"> {{ $item->user->name }}
                                                                 </h5>
-                                                                <span class="dot mb-1"></span><span
-                                                                    id="rateYo{{ $item->id }}"> </span>
+                                                                <span class="dot mb-1"></span>
+                                                                <p id="rateYo{{ $item->id }}"> </p>
                                                                 <span class="dot mb-1"></span><span
                                                                     class="mb-1">{{ \Carbon\Carbon::createFromTimestamp(strtotime($item->created_at))->diffForHumans(\Carbon\Carbon::now()) }}</span>
 
@@ -192,72 +188,30 @@
                 </div>
             </div>
             <div class="row">
+                @foreach ($related_product as $data )
                 <div class="col-lg-3 col-md-4 col-sm-6">
+
                     <div class="product__item">
-                        <!-- <div class="product__item__pic set-bg" data-setbg="{{url('uploads')}}/{{$product->anh}}"> -->
+
                         <div class="product__item__pic">
-                          <img src="{{url('uploads')}}/chè lam"></img>
+
+                            <img src="{{url('uploads')}}/{{$data->anh}}"></img>
+
+
                             <ul class="product__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
                         </div>
+
                         <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h6><a href="#">{{$data->ten}}</a></h6>
+                            <h5>{{$data->gia}}</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <!-- <div class="product__item__pic set-bg" data-setbg="{{url('uploads')}}/{{$product->anh}}"> -->
-                        <div class="product__item__pic">
-                          <img src="{{url('uploads')}}/chè lam"></img>
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <!-- <div class="product__item__pic set-bg" data-setbg="{{url('uploads')}}/{{$product->anh}}"> -->
-                        <div class="product__item__pic">
-                          <img src="{{url('uploads')}}/chè lam"></img>
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

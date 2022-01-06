@@ -58,8 +58,11 @@ class ProductDetail extends Component
 
         $product = Sanpham::where('id',$this->id)->first();
         $getreview = Review::where('product_id',$this->id)->get();
-        $average =  $getreview->avg('rating');
+        $related_product = Sanpham::where('nhomsanphamid',$product->nhomsanphamid)->where('id','!=',$this->id)->get();
 
-        return view('livewire.product-detail',compact('product','getreview','average'))->layout('layouts.base');
+        $average =  $getreview->avg('rating');
+        $images = json_decode($product->danhsachanh, true);
+
+        return view('livewire.product-detail',compact('product','getreview','average','images','related_product'))->layout('layouts.base');
     }
 }

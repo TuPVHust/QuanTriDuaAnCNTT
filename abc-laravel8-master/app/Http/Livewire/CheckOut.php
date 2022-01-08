@@ -9,12 +9,14 @@ use App\Models\OrderItem;
 use Illuminate\Support\Facades\Auth;
 class CheckOut extends Component
 {
+
+
     public $firstname;
     public $lastname;
     public $email;
     public $phone;
     public $address;
-    // public $country;
+
     public $zipcode;
     public function placeOder1()
     {
@@ -59,13 +61,17 @@ class CheckOut extends Component
 
             }
             Cart::destroy();
-            return redirect()->route('home');
+           return redirect()->route('home');
 
 
     }
     public function render()
     {
         $items=Cart::content();
+
+
+
         return view('livewire.check-out',compact('items'))->layout('layouts.base');
+
     }
 }

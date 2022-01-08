@@ -98,8 +98,13 @@
                 </ul>
             </div>
             <div class="header__top__right__auth">
-                <a  href="{{route('admin.getlogin')}}"><i class="fa fa-user"></i> Login</a>
+                @if (Auth::check())
                 <a  href="{{route('admin.getlogout')}}"><i class="fa fa-user"></i> LogOut</a>
+                @else
+
+                <a class="d-inline" href="{{route('admin.getlogin')}}"><i class="fa fa-user"></i> Login</a>
+                <a class="d-inline" href="{{route('register')}}"><i class="fa fa-user"></i> Register</a>
+                @endif
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -165,8 +170,13 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <a  href="{{route('admin.getlogin')}}"><i class="fa fa-user"></i> Login</a>
+                                @if (Auth::check())
                                 <a  href="{{route('admin.getlogout')}}"><i class="fa fa-user"></i> LogOut</a>
+                                @else
+
+                                <a class="d-inline" href="{{route('admin.getlogin')}}"><i class="fa fa-user"></i> Login</a>
+                                <a class="d-inline" href="{{route('register')}}"><i class="fa fa-user"></i> Register</a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -269,7 +279,7 @@
                 <div class="col-lg-12">
                     <div class="footer__copyright">
                         <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  {{-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> --}}
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
                         <div class="footer__copyright__payment"><img src="{{url('site')}}/img/payment-item.png" alt=""></div>
                     </div>
@@ -297,8 +307,8 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
     <!-- The "defer" attribute is important to make sure Alpine waits for Livewire to load first. -->
 
-    <script src="jquery.js"></script>
-    <script src="jquery.rateyo.js"></script>
+    {{-- <script src="jquery.js"></script>
+    <script src="jquery.rateyo.js"></script> --}}
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
     @stack('scripts')

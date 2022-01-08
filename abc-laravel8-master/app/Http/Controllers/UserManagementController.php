@@ -12,6 +12,7 @@ class UserManagementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $data=User::paginate(15);

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -17,51 +16,52 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="{{url('site')}}/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="{{url('site')}}/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="{{url('site')}}/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="{{url('site')}}/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="{{url('site')}}/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="{{url('site')}}/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="{{url('site')}}/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="{{url('site')}}/css/style.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('site') }}/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('site') }}/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('site') }}/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('site') }}/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('site') }}/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('site') }}/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('site') }}/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('site') }}/css/style.css" type="text/css">
     <style>
-                    /* .body1 {
+        /* .body1 {
                 background-color: #eee
             } */
 
-            .bdge {
-                height: 21px;
-                background-color: orange;
-                color: #fff;
-                font-size: 11px;
-                padding: 8px;
-                border-radius: 4px;
-                line-height: 3px
-            }
+        .bdge {
+            height: 21px;
+            background-color: orange;
+            color: #fff;
+            font-size: 11px;
+            padding: 8px;
+            border-radius: 4px;
+            line-height: 3px
+        }
 
-            .comments {
-                text-decoration: underline;
-                text-underline-position: under;
-                cursor: pointer
-            }
+        .comments {
+            text-decoration: underline;
+            text-underline-position: under;
+            cursor: pointer
+        }
 
-            .dot {
-                height: 7px;
-                width: 7px;
-                margin-top: 3px;
-                background-color: #bbb;
-                border-radius: 50%;
-                display: inline-block
-            }
+        .dot {
+            height: 7px;
+            width: 7px;
+            margin-top: 3px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block
+        }
 
-            .hit-voting:hover {
-                color: blue
-            }
+        .hit-voting:hover {
+            color: blue
+        }
 
-            .hit-voting {
-                cursor: pointer
-            }
+        .hit-voting {
+            cursor: pointer
+        }
+
     </style>
     <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> -->
 
@@ -78,7 +78,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="{{url('site')}}/img/logo.png" alt=""></a>
+            <a href="#"><img src="{{ url('site') }}/img/logo.png" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -89,7 +89,7 @@
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
-                <img src="{{url('site')}}/img/language.png" alt="">
+                <img src="{{ url('site') }}/img/language.png" alt="">
                 <div>English</div>
                 <span class="arrow_carrot-down"></span>
                 <ul>
@@ -99,17 +99,19 @@
             </div>
             <div class="header__top__right__auth">
                 @if (Auth::check())
-                <a  href="{{route('admin.getlogout')}}"><i class="fa fa-user"></i> LogOut</a>
+                    <a href="{{ route('admin.getlogout') }}"><i class="fa fa-user"></i> LogOut</a>
                 @else
 
-                <a class="d-inline" href="{{route('admin.getlogin')}}"><i class="fa fa-user"></i> Login</a>
-                <a class="d-inline" href="{{route('register')}}"><i class="fa fa-user"></i> Register</a>
+                    <a class="d-inline" href="{{ route('admin.getlogin') }}"><i class="fa fa-user"></i>
+                        Login</a>
+                    <a class="d-inline" href="{{ route('register') }}"><i class="fa fa-user"></i>
+                        Register</a>
                 @endif
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="{{route('home')}}">Home</a></li>
+                <li class="active"><a href="{{ route('home') }}">Home</a></li>
                 <li><a href="./shop-grid.html">Shop</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
@@ -161,7 +163,7 @@
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
                             <div class="header__top__right__language">
-                                <img src="{{url('site')}}/img/language.png" alt="">
+                                <img src="{{ url('site') }}/img/language.png" alt="">
                                 <div>English</div>
                                 <span class="arrow_carrot-down"></span>
                                 <ul>
@@ -171,11 +173,14 @@
                             </div>
                             <div class="header__top__right__auth">
                                 @if (Auth::check())
-                                <a  href="{{route('admin.getlogout')}}"><i class="fa fa-user"></i> LogOut</a>
+                                    <a href="{{ route('admin.getlogout') }}"><i class="fa fa-user"></i>
+                                        LogOut</a>
                                 @else
 
-                                <a class="d-inline" href="{{route('admin.getlogin')}}"><i class="fa fa-user"></i> Login</a>
-                                <a class="d-inline" href="{{route('register')}}"><i class="fa fa-user"></i> Register</a>
+                                    <a class="d-inline" href="{{ route('admin.getlogin') }}"><i
+                                            class="fa fa-user"></i> Login</a>
+                                    <a class="d-inline" href="{{ route('register') }}"><i
+                                            class="fa fa-user"></i> Register</a>
                                 @endif
                             </div>
                         </div>
@@ -187,18 +192,22 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="{{route('home')}}"><img src="{{url('site')}}/img/logo.png" alt=""></a>
+                        <a href="{{ route('home') }}"><img src="{{ url('site') }}/img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li @class(["active" => (Request::route()->getName()=='home')])><a href="{{route('home')}}">Home</a></li>
-                            <li @class(["active" => (Request::route()->getName()=='shop')])><a href="{{route('shop')}}">Shop</a></li>
+                            <li @class([
+                                'active' => Request::route()->getName() == 'home',
+                            ])><a href="{{ route('home') }}">Home</a></li>
+                            <li @class([
+                                'active' => Request::route()->getName() == 'shop',
+                            ])><a href="{{ route('shop') }}">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="{{route('cart')}}">Shoping Cart</a></li>
+                                    <li><a href="{{ route('cart') }}">Shoping Cart</a></li>
                                     <li><a href="./checkout.html">Check Out</a></li>
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
@@ -219,7 +228,7 @@
     </header>
     <!-- Header Section End -->
 
-  {{$slot}}
+    {{ $slot }}
 
     <!-- Footer Section Begin -->
     <footer class="footer spad">
@@ -228,7 +237,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="{{route('home')}}"><img src="{{url('site')}}/img/logo.png" alt=""></a>
+                            <a href="{{ route('home') }}"><img src="{{ url('site') }}/img/logo.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: 60-49 Road 11378 New York</li>
@@ -278,10 +287,15 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer__copyright">
-                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  {{-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> --}}
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
-                        <div class="footer__copyright__payment"><img src="{{url('site')}}/img/payment-item.png" alt=""></div>
+                        <div class="footer__copyright__text">
+                            <p>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                {{-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> --}}
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
+                        <div class="footer__copyright__payment"><img src="{{ url('site') }}/img/payment-item.png"
+                                alt=""></div>
                     </div>
                 </div>
             </div>
@@ -290,18 +304,18 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="{{url('site')}}/js/jquery-3.3.1.min.js"></script>
-    <script src="{{url('site')}}/js/bootstrap.min.js"></script>
-    <script src="{{url('site')}}/js/jquery.nice-select.min.js"></script>
+    <script src="{{ url('site') }}/js/jquery-3.3.1.min.js"></script>
+    <script src="{{ url('site') }}/js/bootstrap.min.js"></script>
+    <script src="{{ url('site') }}/js/jquery.nice-select.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
-    <script src="{{url('site')}}/js/jquery-ui.min.js"></script>
-    <script src="{{url('site')}}/js/jquery.slicknav.js"></script>
-    <script src="{{url('site')}}/js/mixitup.min.js"></script>
-    <script src="{{url('site')}}/js/owl.carousel.min.js"></script>
+    <script src="{{ url('site') }}/js/jquery-ui.min.js"></script>
+    <script src="{{ url('site') }}/js/jquery.slicknav.js"></script>
+    <script src="{{ url('site') }}/js/mixitup.min.js"></script>
+    <script src="{{ url('site') }}/js/owl.carousel.min.js"></script>
 
-    <script src="{{url('site')}}/js/easy-number-separator.js"></script>
+    <script src="{{ url('site') }}/js/easy-number-separator.js"></script>
 
-    <script src="{{url('site')}}/js/main.js"></script>
+    <script src="{{ url('site') }}/js/main.js"></script>
     @livewireScripts
 
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
@@ -309,8 +323,8 @@
 
     {{-- <script src="jquery.js"></script>
     <script src="jquery.rateyo.js"></script> --}}
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
     @stack('scripts')
 </body>
 

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Livewire\TestComponent;
 use App\Http\Middleware\CheckCustomer;
+use Illuminate\Routing\Route as RoutingRoute;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,3 +67,5 @@ Route::get('/blog-detail',App\Http\Livewire\BlogDetail::class)->name('blog-detai
 Route::get("/register", [RegistrationController::class, 'create'])->name('register');
 Route::post("/register/create", [RegistrationController::class, 'store']);
 Route::get('/thanhtoan',App\Http\Livewire\Testthanhtoan::class)->name('thanhtoan');
+// Route::get('/returnpayment',App\Http\Livewire\ReturnPayment::class)->name('returnpayment');
+Route::get("/returnpayment", [RegistrationController::class, 'payment']);

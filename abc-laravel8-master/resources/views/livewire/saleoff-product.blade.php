@@ -5,9 +5,7 @@
     </div>
     <div class="row">
       <div class="product__discount__slider owl-carousel">
-          @foreach ($rating as $d)
-             sdsds {{$d->rating}}
-          @endforeach
+
         @foreach ($products as $product)
 
         <div class="col-lg-4">

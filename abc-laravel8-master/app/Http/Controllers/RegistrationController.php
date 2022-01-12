@@ -6,7 +6,19 @@ use App\Models\User;
 
 class RegistrationController extends Controller
 {
+    public $currentUrl;
 
+// public function FunctionName()
+// {
+//     session(['info_customer' => '12312']);
+// }
+    public function payment(Request $request)
+    {
+
+        $data = $request->all();
+        $data1 = $request->vnp_Amount;
+        return view('vnpay.vnpay_return',compact('data','data1'));
+    }
     public function create() {
         return view('admin.registration');
     }

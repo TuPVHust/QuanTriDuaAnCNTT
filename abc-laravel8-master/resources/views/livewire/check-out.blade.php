@@ -34,7 +34,66 @@
 
                                 <input id="address" type="text" name="address" value="" placeholder="Your name" wire:model="address" >
                             </div>
-
+                            <div class="checkout__input">
+                                <label for="order_desc">Nội dung thanh toán</label>
+                                <textarea class="form-control" cols="20" id="order_desc" name="order_desc" rows="2">Noi dung thanh toan</textarea>
+                            </div>
+                           <div class="form-group">
+                                <label for="bank_code">Ngân hàng</label>
+                                <select name="bank_code" id="bank_code" class="form-control">
+                                    <option value="">Không chọn</option>
+                                    <option value="NCB"> Ngan hang NCB</option>
+                                    <option value="AGRIBANK"> Ngan hang Agribank</option>
+                                    <option value="SCB"> Ngan hang SCB</option>
+                                    <option value="SACOMBANK">Ngan hang SacomBank</option>
+                                    <option value="EXIMBANK"> Ngan hang EximBank</option>
+                                    <option value="MSBANK"> Ngan hang MSBANK</option>
+                                    <option value="NAMABANK"> Ngan hang NamABank</option>
+                                    <option value="VNMART"> Vi dien tu VnMart</option>
+                                    <option value="VIETINBANK">Ngan hang Vietinbank</option>
+                                    <option value="VIETCOMBANK"> Ngan hang VCB</option>
+                                    <option value="HDBANK">Ngan hang HDBank</option>
+                                    <option value="DONGABANK"> Ngan hang Dong A</option>
+                                    <option value="TPBANK"> Ngân hàng TPBank</option>
+                                    <option value="OJB"> Ngân hàng OceanBank</option>
+                                    <option value="BIDV"> Ngân hàng BIDV</option>
+                                    <option value="TECHCOMBANK"> Ngân hàng Techcombank</option>
+                                    <option value="VPBANK"> Ngan hang VPBank</option>
+                                    <option value="MBBANK"> Ngan hang MBBank</option>
+                                    <option value="ACB"> Ngan hang ACB</option>
+                                    <option value="OCB"> Ngan hang OCB</option>
+                                    <option value="IVB"> Ngan hang IVB</option>
+                                    <option value="VISA"> Thanh toan qua VISA/MASTER</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="bank_code">Ngân hàng</label>
+                                <select name="bank_code" id="bank_code" class="form-control">
+                                    <option value="">Không chọn</option>
+                                    <option value="NCB"> Ngan hang NCB</option>
+                                    <option value="AGRIBANK"> Ngan hang Agribank</option>
+                                    <option value="SCB"> Ngan hang SCB</option>
+                                    <option value="SACOMBANK">Ngan hang SacomBank</option>
+                                    <option value="EXIMBANK"> Ngan hang EximBank</option>
+                                    <option value="MSBANK"> Ngan hang MSBANK</option>
+                                    <option value="NAMABANK"> Ngan hang NamABank</option>
+                                    <option value="VNMART"> Vi dien tu VnMart</option>
+                                    <option value="VIETINBANK">Ngan hang Vietinbank</option>
+                                    <option value="VIETCOMBANK"> Ngan hang VCB</option>
+                                    <option value="HDBANK">Ngan hang HDBank</option>
+                                    <option value="DONGABANK"> Ngan hang Dong A</option>
+                                    <option value="TPBANK"> Ngân hàng TPBank</option>
+                                    <option value="OJB"> Ngân hàng OceanBank</option>
+                                    <option value="BIDV"> Ngân hàng BIDV</option>
+                                    <option value="TECHCOMBANK"> Ngân hàng Techcombank</option>
+                                    <option value="VPBANK"> Ngan hang VPBank</option>
+                                    <option value="MBBANK"> Ngan hang MBBank</option>
+                                    <option value="ACB"> Ngan hang ACB</option>
+                                    <option value="OCB"> Ngan hang OCB</option>
+                                    <option value="IVB"> Ngan hang IVB</option>
+                                    <option value="VISA"> Thanh toan qua VISA/MASTER</option>
+                                </select>
+                            </div>
                             <div class="checkout__input">
                                 <p>Postcode / ZIP<span>*</span></p>
                                 <input id="zip-code" type="number" name="zip-code" value="" placeholder="Your postal code" wire:model="zipcode">
@@ -64,8 +123,8 @@
                                     <li>{{$i->name}} <span>{{$i->qty*$i->price}}</span></li>
                                     @endforeach
                                 </ul>
-                                <div class="checkout__order__subtotal">Subtotal <span>$750.99</span></div>
-                                <div class="checkout__order__total">Total <span>$750.99</span></div>
+                                <div class="checkout__order__subtotal">Subtotal <span>{{ Cart::subtotal(0) }}</span></div>
+                                <div class="checkout__order__total">Total <span> {{ Cart::total(0) }}</span></div>
                                 <div class="checkout__input__checkbox">
                                     <label for="acc-or">
                                         Create an account?

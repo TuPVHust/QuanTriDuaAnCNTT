@@ -18,13 +18,13 @@
 
     <h3>Tạo mới đơn h&#224;ng</h3>
     <div class="table-responsive">
-        <form action="/tryitnow/Home/CreateOrder" id="frmCreateOrder" method="post">
-                <div class="form-group">
+        {{-- <form action="/tryitnow/Home/CreateOrder" id="frmCreateOrder" method="post"> --}}
+                <div class="form-group" wire:ignore>
                     <label for="language">Loại hàng hóa </label>
                     <select name="ordertype" id="ordertype" class="form-control">
-                        <option value="topup">Nạp tiền điện thoại</option>
-                        <option value="billpayment">Thanh toán hóa đơn</option>
-                        <option value="fashion">Thời trang</option>
+                       @foreach ($ordertype as $key => $order )
+                           <option value="{{ $key }}">{{ $order }}</option>
+                       @endforeach
                     </select>
                 </div>
                 <div class="form-group">
@@ -84,9 +84,9 @@
                     </select>
                 </div>
                 <!--<button type="submit" class="btn btn-default" id="btnPopup">Thanh toán Popup</button>-->
-            <button type="submit" class="btn btn-default">Thanh toán Redirect</button>
+            <button type="submit" class="btn btn-default" wire:click='createpayment()'>Thanh toán Redirect</button>
             <input name="__RequestVerificationToken" type="hidden" value="02co6nJxiIPwhm-KB9sZGNVDW2-aA-oadquxiG9nEFcLMauWxHBIblvc22aRgSUgpj5KsqcKOizQgb37r3oGorC-IaXucJVK4_DBO4HEE0U1" />
-        </form>
+        {{-- </form> --}}
     </div>
     <p>
         &nbsp;
@@ -96,3 +96,21 @@
         <p>&copy; VNPAY 2022</p>
     </footer>
 </div> <!-- /container -->
+@push('scripts')
+<script>
+    $(function(){
+        $("#sortbyid").on('change', function(e){
+            e.preventDefault();
+            @this.set('sortid', e.target.value);
+
+        });
+    });
+</script>
+    <script>
+        $(function(){
+            $('#orderbyid').on('change',function(e){
+
+            });
+        });
+    </script>
+@endpush

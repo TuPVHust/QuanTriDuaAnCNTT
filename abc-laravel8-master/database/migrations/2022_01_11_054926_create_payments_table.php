@@ -20,7 +20,7 @@ class CreatePaymentsTable extends Migration
             $table->bigInteger('order_id')->unsigned();
             $table->string('code_vnpay')->comment('code giao dịch vnp');
             $table->string('code_bank')->comment('code giao dịch ngân hàng');
-            $table->string('vnp_response_code')->comment('code giao dịch ngân hàng');
+            $table->string('')->comment('');
             $table->string('vnp_response_code')->comment('mã phản hồi');
             $table->string('note')->comment('ghi chú');
             $table->float('tiền')->comment(' số tiền thanh toán');

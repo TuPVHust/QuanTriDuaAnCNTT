@@ -7,8 +7,12 @@ use Cart;
 use App\Models\Order;
 use App\Models\OrderItem;
 use Illuminate\Support\Facades\Auth;
+
+// use Symfony\Component\HttpFoundation\Session\Session;
 class CheckOut extends Component
 {
+
+   public $id;
 
     public $data;
     public $firstname;
@@ -16,25 +20,22 @@ class CheckOut extends Component
     public $email;
     public $phone;
     public $address;
+   // public $i =  $_SESSION["favcolor"] = "green";
+  //  dd($this->i);
+   /// public $i = session(['key' => 12]);
 
     public $zipcode;
     public function placeOder1()
     {
+        session_start();
+        /*session is started if you don't write this line can't use $_Session  global variable*/
+        $_SESSION["newsession"] = 4;
+        /*session created*/
+        dd($_SESSION["newsession"]);
 
-        // $this->validate([
-        //     'firstname' =>'required',
-        //     'lastname' =>'required',
-        //     'email' =>'required',
-        //     'phone' =>'required',
-        //     'address' =>'required',
-        //     'country' =>'required',
-        //     'zipcode' =>'required',
-
-        // ]);
-
-
-
-             $order = new Order();
+        /*session was getting*/
+      //  Session::set('variableName', $value);
+            $order = new Order();
             $order->user_id = Auth::user()->id;
             $order->subtotal = 1213;
             $order->tax = 123;
@@ -43,13 +44,13 @@ class CheckOut extends Component
             $order->lastname= $this->lastname;
             $order->email= $this->email;
             $order->phone= $this->phone;
-
             $order->address= $this->address;
             $order->zipcode= $this->zipcode;
+            $order->save();
+            $this->id = $order->id;
+            // $this->emit('sendid',$this->id);
+            // session(['key' => $order->id]);
 
-
-
-            //   $order->save();
              $items =Cart::content();
              foreach ($items as $i) {
                 $order_item = new OrderItem();
@@ -58,12 +59,9 @@ class CheckOut extends Component
                 $order_item->order_id= $order->id;
                 $order_item->price= $i->price;
                 $order_item->quantity= $i->qty;
-                //$order_item->save();
+               // $order_item->save();
 
             }
-
-
-
             $vnp_TxnRef = date("YmdHis");//Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
             $vnp_OrderInfo = 'information of payonline';
             $vnp_OrderType = 'billpayment';
@@ -129,8 +127,6 @@ class CheckOut extends Component
             if ((null !== $vnp_Bill_State) && $vnp_Bill_State != "") {
                 $inputData['vnp_Bill_State'] = $vnp_Bill_State;
             }
-
-
             ksort($inputData);
             $query = "";
             $i = 0;
@@ -149,20 +145,12 @@ class CheckOut extends Component
                 $vnpSecureHash =   hash_hmac('sha512', $hashdata, env('VNP_HASH_SECRET'));//
                 $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
             }
-
-            session(['info_customer' => '12312']);
             dd($vnp_Url);
-
-
             Cart::destroy();
-           return redirect()->route('home');
+
 
 
     }
-    // public function returnpayment()
-    // {
-
-    // }
     public function render()
     {
         $items=Cart::content();

@@ -8,15 +8,22 @@ class RegistrationController extends Controller
 {
     public $currentUrl;
 
-// public function FunctionName()
-// {
-//     session(['info_customer' => '12312']);
-// }
     public function payment(Request $request)
     {
 
         $data = $request->all();
-        $data1 = $request->vnp_Amount;
+        dd(($data));
+        $tien_thanh_toan = $request->vnp_BankCode;
+        $ma_ngan_hang = $request->vnp_BankTranNo;
+        $ma = $request->vnp_CardType;
+        $data1 = $request->vnp_OrderInfo;
+        $data1 = $request->vnp_PayDate;
+        $data1 = $request->vnp_ResponseCode;
+        $data1 = $request->vnp_TmnCode;
+        $data1 = $request->vnp_TransactionNo;
+        $data1 = $request->vnp_TransactionStatus;
+        $data1 = $request->vnp_TxnRef;
+        dd($data);
         return view('vnpay.vnpay_return',compact('data','data1'));
     }
     public function create() {

@@ -66,6 +66,6 @@ Route::get('/contact',App\Http\Livewire\Contact::class)->name('contact');
 Route::get('/blog-detail',App\Http\Livewire\BlogDetail::class)->name('blog-detail');
 Route::get("/register", [RegistrationController::class, 'create'])->name('register');
 Route::post("/register/create", [RegistrationController::class, 'store']);
-Route::get('/thanhtoan',App\Http\Livewire\Testthanhtoan::class)->name('thanhtoan');
-// Route::get('/returnpayment',App\Http\Livewire\ReturnPayment::class)->name('returnpayment');
-Route::get("/returnpayment", [RegistrationController::class, 'payment']);
+
+Route::get('/returnpayment',App\Http\Livewire\ReturnPayment::class)->name('returnpayment');
+//  Route::get("/returnpayment", [RegistrationController::class, 'payment']);

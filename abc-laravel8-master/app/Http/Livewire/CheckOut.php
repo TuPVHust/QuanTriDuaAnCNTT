@@ -12,17 +12,6 @@ use Illuminate\Http\Request;
 class CheckOut extends Component
 {
 
-    // $re->validate([
-    //         'firstname' =>'required',
-    //         'lastname' =>'required',
-    //         'email' =>'required',
-    //         'phone' =>'required',
-    //         'address' =>'required',
-    //         'country' =>'required',
-    //         'zipcode' =>'required',
-
-    //     ]);
-
     public $message;
     public $fullname;
 
@@ -59,7 +48,7 @@ class CheckOut extends Component
             $vnp_TxnRef = date("YmdHis");//Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
             $vnp_OrderInfo = $this->message;
             $vnp_OrderType = 'billpayment';
-            $vnp_Amount =  '900000000';
+            $vnp_Amount =  Cart::Total();
             $vnp_Locale =   'vn';
             $vnp_BankCode = 'NCB';
             $vnp_IpAddr =$_SERVER['REMOTE_ADDR'];
@@ -143,7 +132,7 @@ class CheckOut extends Component
                 $vnpSecureHash =   hash_hmac('sha512', $hashdata, env('VNP_HASH_SECRET'));//
                 $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
             }
-            Cart::destroy();
+            // Cart::destroy();
             redirect($vnp_Url);
     }
     public function render()

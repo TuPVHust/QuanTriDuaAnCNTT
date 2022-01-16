@@ -15,7 +15,6 @@ class CreateMagiamgiasTable extends Migration
     {
         Schema::create('magiamgias', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('sanphamid')->unsigned();
             $table->string('ten_ma');
             $table->string('note');
             $table->float('phan tram');

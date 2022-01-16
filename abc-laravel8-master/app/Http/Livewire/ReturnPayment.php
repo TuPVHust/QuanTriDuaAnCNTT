@@ -29,8 +29,6 @@ class ReturnPayment extends Component
           $this->amount  = $payment->amount = $_GET['vnp_Amount'];// rong migration ghi là
           $this->TransactionNo  = $payment->TransactionNo = $_GET['vnp_TransactionNo'];
           $this->TransactionStatus  = $payment->TransactionStatus = $_GET['vnp_TransactionStatus'];
-
-
           $payment->save();
         }
         $this->id =session('id');
@@ -39,16 +37,16 @@ class ReturnPayment extends Component
     public function render()
     {
 
-        $code_bank =  $this->code_bank;
-        $code_vnpay = $this->code_vnpay;
-        $code_vnpay  =  $this->code_bank;
-        $typecard  = $this->typecard;
-        $vnp_response_code = $this->vnp_response_code;
-        $note= $this->note;
+        // $code_bank =  $this->code_bank;
+        // $code_vnpay = $this->code_vnpay;
+        // $code_vnpay  =  $this->code_bank;
+        // $typecard  = $this->typecard;
+        // $vnp_response_code = $this->vnp_response_code;
+        // $note= $this->note;
         $amount = $this->amount;
-        $TransactionStatus = $this->TransactionStatus;
-        $TransactionStatus =  $this->TransactionStatus;
+        // $TransactionStatus = $this->TransactionStatus;
+        // $TransactionStatus =  $this->TransactionStatus;
 
-        return view('livewire.return-payment',compact('key'))->layout('layouts.returnpayment');
+        return view('livewire.return-payment',compact('amount'));
     }
 }

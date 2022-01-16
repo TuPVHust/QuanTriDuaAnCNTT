@@ -79,8 +79,23 @@
  </head>
  <body>
     <div class="container">
-    {{ $slot }}
+        <div class="row">
+            <div class="col-md-6 mx-auto mt-5">
+               <div class="payment">
+                  <div class="payment_header">
+                     <div class="check"><i class="fa fa-check" aria-hidden="true"></i></div>
+                  </div>
+                  <div class="content">
+                     <h1>Thanh toán thành công !</h1>
+                     <h4> Số tiền giao dịch là {{ $amount }} :  </h4>
+                    @dd();
+                     <a href="http://127.0.0.1:8000/">Go to Home</a>
+                  </div>
 
- </div>
+               </div>
+            </div>
+         </div>
+
+    </div>
  </body>
  </html>

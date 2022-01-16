@@ -20,11 +20,13 @@ class CreatePaymentsTable extends Migration
             $table->bigInteger('order_id')->unsigned();
             $table->string('code_vnpay')->comment('code giao dịch vnp');
             $table->string('code_bank')->comment('code giao dịch ngân hàng');
-            $table->string('')->comment('');
+            $table->string('typecard')->comment('loại thẻ');
             $table->string('vnp_response_code')->comment('mã phản hồi');
-            $table->string('note')->comment('ghi chú');
-            $table->float('tiền')->comment(' số tiền thanh toán');
-            $table->float('thanh_vien')->comment('thanh viên thanh toán');
+            $table->string('note')->comment('thông tin thanh toán');
+            $table->float('amount')->comment(' số tiền thanh toán');
+            $table->bigInteger('TransactionNo')->comment('mã số giao dịch');
+            $table->bigInteger('TransactionStatus')->comment('1: thành công, 2:thất bại');
+            $table->tinyInteger('type')->comment('1: trực tiếp, 2: online')->default(2);
             $table->timestamps();
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
         });

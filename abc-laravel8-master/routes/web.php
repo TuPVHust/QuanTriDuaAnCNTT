@@ -6,6 +6,7 @@ use App\Http\Controllers\SanphamController;
 use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Middleware\CheckAdminLogin;
+use App\Http\Controllers\MaGiamGia;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Livewire\TestComponent;
@@ -43,6 +44,7 @@ Route::prefix('admin')->name('admin.')->middleware([CheckAdminLogin::class])->gr
         'nhomsanpham' => NhomsanphamController::class,
         'sanpham' => SanphamController::class,
         'usermanagement' => UserManagementController::class,
+        'magiamgia' => MaGiamGia::class,
     ]);
 
 });

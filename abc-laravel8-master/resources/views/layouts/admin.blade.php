@@ -226,6 +226,14 @@
               </a>
             </li>
             <li class="nav-item">
+                <a href="{{route('admin.magiamgia.index')}}" class="nav-link">
+                  <i class="nav-icon fas fa-users"></i>
+                  <p>
+                    Quản lý mã giảm giá
+                  </p>
+                </a>
+              </li>
+            <li class="nav-item">
               <a href="{{route('admin.getlogout')}}" class="nav-link">
                 <i class="nav-icon fa fa-sign-out-alt"></i>
                 <p>

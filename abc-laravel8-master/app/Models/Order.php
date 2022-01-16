@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-    use HasFactory;
+
     protected $table = "orders";
     public function user()
     {

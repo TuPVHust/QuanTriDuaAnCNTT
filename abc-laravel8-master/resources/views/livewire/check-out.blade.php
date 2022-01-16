@@ -14,21 +14,10 @@
                 <form action="#">
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
-                            <div class="row">
-                                <div class="col-lg-6">
                                     <div class="checkout__input">
-                                        <p>Fist Name<span>*</span></p>
-                                        <input id="firstname" type="text" name="firstname" value="" placeholder="Your name" wire:model="firstname" >
+                                        <p>Full Name<span>*</span></p>
+                                        <input id="fullname" type="text" name="fullname" value="" placeholder="Your name" wire:model="fullname" >
                                     </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Last Name<span>*</span></p>
-                                        <input id="lastname" type="text" name="lastname" value="" placeholder="Your name" wire:model="lastname" >
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="checkout__input">
                                 <p>Address<span>*</span></p>
 
@@ -36,12 +25,12 @@
                             </div>
                             <div class="checkout__input">
                                 <label for="order_desc">Nội dung thanh toán</label>
-                                <textarea class="form-control" cols="20" id="order_desc" name="order_desc" rows="2">Noi dung thanh toan</textarea>
+                                <textarea class="form-control" cols="20" id="order_desc" name="order_desc" wire:model='message' rows="2">Noi dung thanh toan</textarea>
                             </div>
-                           <div class="form-group">
-                                <label for="bank_code">Ngân hàng</label>
+                           <div  class="form-group" >
+                                <label for="bank_code">Ngân hàng</label><br>
                                 <select name="bank_code" id="bank_code" class="form-control">
-                                    <option value="">Không chọn</option>
+
                                     <option value="NCB"> Ngan hang NCB</option>
                                     <option value="AGRIBANK"> Ngan hang Agribank</option>
                                     <option value="SCB"> Ngan hang SCB</option>
@@ -65,35 +54,7 @@
                                     <option value="IVB"> Ngan hang IVB</option>
                                     <option value="VISA"> Thanh toan qua VISA/MASTER</option>
                                 </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="bank_code">Ngân hàng</label>
-                                <select name="bank_code" id="bank_code" class="form-control">
-                                    <option value="">Không chọn</option>
-                                    <option value="NCB"> Ngan hang NCB</option>
-                                    <option value="AGRIBANK"> Ngan hang Agribank</option>
-                                    <option value="SCB"> Ngan hang SCB</option>
-                                    <option value="SACOMBANK">Ngan hang SacomBank</option>
-                                    <option value="EXIMBANK"> Ngan hang EximBank</option>
-                                    <option value="MSBANK"> Ngan hang MSBANK</option>
-                                    <option value="NAMABANK"> Ngan hang NamABank</option>
-                                    <option value="VNMART"> Vi dien tu VnMart</option>
-                                    <option value="VIETINBANK">Ngan hang Vietinbank</option>
-                                    <option value="VIETCOMBANK"> Ngan hang VCB</option>
-                                    <option value="HDBANK">Ngan hang HDBank</option>
-                                    <option value="DONGABANK"> Ngan hang Dong A</option>
-                                    <option value="TPBANK"> Ngân hàng TPBank</option>
-                                    <option value="OJB"> Ngân hàng OceanBank</option>
-                                    <option value="BIDV"> Ngân hàng BIDV</option>
-                                    <option value="TECHCOMBANK"> Ngân hàng Techcombank</option>
-                                    <option value="VPBANK"> Ngan hang VPBank</option>
-                                    <option value="MBBANK"> Ngan hang MBBank</option>
-                                    <option value="ACB"> Ngan hang ACB</option>
-                                    <option value="OCB"> Ngan hang OCB</option>
-                                    <option value="IVB"> Ngan hang IVB</option>
-                                    <option value="VISA"> Thanh toan qua VISA/MASTER</option>
-                                </select>
-                            </div>
+                           </div> <br>
                             <div class="checkout__input">
                                 <p>Postcode / ZIP<span>*</span></p>
                                 <input id="zip-code" type="number" name="zip-code" value="" placeholder="Your postal code" wire:model="zipcode">
@@ -149,7 +110,8 @@
                                     </label>
                                 </div>
 
-                                <button wire:click='placeOder1' type="submit" class="site-btn">PLACE ORDER</button>
+                                <button wire:click.prevent = 'placeOder1' class="site-btn">PLACE ORDER</button>
+
                             </div>
                         </div>
                     </div>

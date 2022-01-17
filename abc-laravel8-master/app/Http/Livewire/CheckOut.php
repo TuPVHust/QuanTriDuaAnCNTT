@@ -56,7 +56,7 @@ class CheckOut extends Component
             $startTime = date("YmdHis");
             $expire =   date('YmdHis',strtotime('+10 minutes',strtotime($startTime)));
             $vnp_ExpireDate =  $expire;
-            //Billing
+            //Bill
             $vnp_Bill_Mobile =  $this->phone;
             $vnp_Bill_Email =   $this->email;
              $fullName = trim($this->fullname);

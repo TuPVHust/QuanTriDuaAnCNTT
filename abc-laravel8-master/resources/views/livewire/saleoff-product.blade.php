@@ -33,7 +33,7 @@
 
               <div class="product__item__price">{{number_format($product->giaban,0)}} <span>{{number_format($product->gia,0)}}</span></div>
             </div>
-            <p id="rateYo{{ $product->id }}"> </p>
+            <p class="rateYo{{ $product->id }}"> </p>
           </div>
         </div>
 
@@ -50,7 +50,7 @@
 
     $(function() {
 
-        $(`#rateYo{{ $product->id }}`).rateYo({
+        $(`.rateYo{{ $product->id }}`).rateYo({
             rating: 3.6,
             starWidth: "15px",
             readOnly: true,

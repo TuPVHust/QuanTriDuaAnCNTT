@@ -23,8 +23,8 @@ class CheckOut extends Component
     {
             $order = new Order();
             $order->user_id = Auth::user()->id;
-            $order->subtotal = 1213;
-            $order->tax = 123;
+            $order->subtotal = Cart::subtotal(0);
+            $order->tax = Cart::tex(0);
             $order->total = Cart::Total();
             $order->firstname= $this->fullname;
             $order->lastname= $this->fullname;

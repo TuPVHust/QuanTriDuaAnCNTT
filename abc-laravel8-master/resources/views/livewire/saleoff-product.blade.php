@@ -51,7 +51,7 @@
     $(function() {
 
         $(`.rateYo{{ $product->id }}`).rateYo({
-            rating: 3.6,
+            rating:{{ $product->rating }},
             starWidth: "15px",
             readOnly: true,
         });

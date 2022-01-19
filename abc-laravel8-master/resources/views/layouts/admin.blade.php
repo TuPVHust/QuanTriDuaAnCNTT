@@ -216,7 +216,14 @@
                   Quản lý file
                 </p>
               </a>
-            </li>
+            </li>  <li class="nav-item">
+                <a href="{{route('admin.comment.index')}}" class="nav-link">
+                  <i class="nav-icon fas fa-file"></i>
+                  <p>
+                    Quản Comment
+                  </p>
+                </a>
+              </li>
             <li class="nav-item">
               <a href="{{route('admin.usermanagement.index')}}" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>

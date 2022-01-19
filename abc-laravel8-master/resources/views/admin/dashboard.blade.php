@@ -5,8 +5,8 @@
 @section('content')
 
 <div class="jumbotron">
-    <h1 class="display-3">Dashboard</h1>
-    <p class="lead">Jumbo helper text</p>
+    <h1 class="display-3"> phần  dành cho admin </h1>
+    <p class="lead"></p>
     <hr class="my-2">
     <p>More info</p>
     <p class="lead">

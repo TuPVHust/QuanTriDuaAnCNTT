@@ -30,15 +30,16 @@
             <div class="col-lg-6 col-md-6">
 
                 <div class="product__details__text">
-                    <h3>Vetgetable’s tghay đổi Package</h3>
+                    <h3>{{ $product->ten }}</h3>
                     <div class="product__details__rating">
                         <div id="rateYoRoot"> </div>
                         <span>({{ $getreview->count() }} review)</span>
                     </div>
                     <div class="product__details__price"></div>
-                    <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
+                    {{-- <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
                         vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet
-                        quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
+                        quam vehicula elementum sed sit amet dui. Proin eget tortor risus. --}}
+                        <p>     {!! $product->mota!!}</p>
                     <div class="product__details__quantity">
                         <div class="quantity">
                             <div class="pro-qty">
@@ -75,7 +76,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
-                                aria-selected="false">Information</a>
+                                aria-selected="false">Information </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
@@ -83,7 +84,7 @@
                         </li>
                     </ul>
                     <div class="tab-content">
-                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                        <div class="tab-pane active" id="tabs-2" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>Products Infomation</h6>
                                 <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
@@ -106,7 +107,7 @@
                                     sed sit amet dui. Proin eget tortor risus.</p>
                             </div>
                         </div>
-                        <div class="tab-pane" id="tabs-2" role="tabpanel">
+                        <div class="tab-pane" id="tabs-1" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>Products Infomation</h6>
                                 <div class="container mt-5 mb-5">

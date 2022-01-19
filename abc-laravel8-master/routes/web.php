@@ -3,10 +3,11 @@
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\NhomsanphamController;
 use App\Http\Controllers\SanphamController;
-use App\Http\Controllers\UserManagementController;
+use App\Http\Controllers\QuanLyNguoiDungController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Middleware\CheckAdminLogin;
 use App\Http\Controllers\MaGiamGia;
+use App\Http\Controllers\QuanLyComment;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Livewire\TestComponent;
@@ -43,7 +44,8 @@ Route::prefix('admin')->name('admin.')->middleware([CheckAdminLogin::class])->gr
     Route::resources([
         'nhomsanpham' => NhomsanphamController::class,
         'sanpham' => SanphamController::class,
-        'usermanagement' => UserManagementController::class,
+        'usermanagement' => QuanLyNguoiDungController::class,
+        'comment' => QuanLyComment::class,
         'magiamgia' => MaGiamGia::class,
     ]);
 

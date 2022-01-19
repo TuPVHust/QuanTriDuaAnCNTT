@@ -93,7 +93,6 @@ class SanphamController extends Controller
     public function edit(Sanpham $sanpham)
     {
         $nhomsanphams=Nhomsanpham::orderby('ten')->where('trangthai',1)->select('id','ten')->get();
-
         return view('admin.sanpham.edit', ['sanpham'=>$sanpham, 'nhomsanphams'=>$nhomsanphams]);
     }
 

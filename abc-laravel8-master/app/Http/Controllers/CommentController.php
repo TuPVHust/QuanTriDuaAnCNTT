@@ -2,28 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
 
-class UserManagementController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-        $data=User::paginate(15);
-
-        if ($key=request()->key){
-            $data=User::where('name','like','%'.$key.'%')->paginate(15);
-        }
-
-        return view('admin.user.index', compact('data'));
+        //
     }
 
     /**
@@ -34,7 +24,6 @@ class UserManagementController extends Controller
     public function create()
     {
         //
-
     }
 
     /**
@@ -51,10 +40,10 @@ class UserManagementController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
         //
     }
@@ -62,37 +51,33 @@ class UserManagementController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user, Request $request)
+    public function edit($id)
     {
-
-        $user = User::find($request->id);
-         dd($user);
-         return view('admin.user.edit',["user"=>$user]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-
-         dd($request->id);
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
         //
     }

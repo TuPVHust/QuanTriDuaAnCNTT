@@ -46,7 +46,9 @@
 *::after {
   box-sizing: border-box;
 }
-
+.text-right1{
+    padding: 3px;
+}
 html {
   font-family: sans-serif;
   line-height: 1.15;

@@ -78,6 +78,7 @@ class NhomsanphamController extends Controller
      */
     public function edit(Nhomsanpham $nhomsanpham)
     {
+        dd($nhomsanpham);
         return view('admin.nhomsanpham.edit',["nhomsanpham"=>$nhomsanpham]);
     }
 
@@ -116,6 +117,7 @@ class NhomsanphamController extends Controller
     public function destroy(Nhomsanpham $nhomsanpham)
     {
         //
+    dd($nhomsanpham);
         if ($nhomsanpham->sanphams()->count()>0){
             return redirect()->route('admin.nhomsanpham.index')->with('error','Xóa bản ghi không thành công do có chứa sản phẩm.');
         }

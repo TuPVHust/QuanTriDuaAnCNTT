@@ -989,7 +989,7 @@ ol {
 }
 
 .latest-product__slider.owl-carousel .owl-nav button span {
-    font-weight: 700;
+    font-weight: 400;
 }
 
 .latest-product__slider.owl-carousel .owl-nav button:last-child {
@@ -1643,7 +1643,7 @@ ol {
 
 li.page-item button,
 span {
-    margin-right: 16px;
+    margin-right: 23px;
     color: #b2b2b2;
 }
 
@@ -1825,8 +1825,8 @@ li.page-item.active .page-link {
 }
 
 .pro-qty .qtybtn {
-    width: 35px;
-    font-size: 16px;
+    width: 43px;
+    font-size: 20px;
     color: #6f6f6f;
     cursor: pointer;
     display: inline-block;
@@ -2005,7 +2005,7 @@ li.page-item.active .page-link {
 }
 
 .shoping__cart__table table tbody tr td.shoping__cart__quantity .pro-qty .qtybtn {
-    width: 15px;
+    width: 0;
 }
 
 .primary-btn.cart-btn {

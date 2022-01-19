@@ -15,7 +15,7 @@
     </form>
   </div>
   <div class="col">
-    <a href="{{url('admin/user/create')}}" class="btn btn-primary float-right">Thêm mới</a>
+    <a href="http://127.0.0.1:8000/register" class="btn btn-primary float-right">Thêm mới</a>
   </div>
 </div>
 <hr>

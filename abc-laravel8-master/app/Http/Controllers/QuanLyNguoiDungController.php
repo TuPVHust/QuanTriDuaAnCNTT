@@ -2,21 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
-
-class UserManagementController extends Controller
+use App\Models\User;
+class QuanLyNguoiDungController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
+        //
         $data=User::paginate(15);
 
         if ($key=request()->key){
@@ -34,7 +31,6 @@ class UserManagementController extends Controller
     public function create()
     {
         //
-
     }
 
     /**
@@ -51,10 +47,10 @@ class UserManagementController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
         //
     }
@@ -62,38 +58,48 @@ class UserManagementController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user, Request $request)
+    public function edit($id)
     {
+        $user = User::find($id);
 
-        $user = User::find($request->id);
-         dd($user);
-         return view('admin.user.edit',["user"=>$user]);
+       return view('admin.user.edit',compact('user'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
 
-         dd($request->id);
+        $user = User::find($id);
+        $user->email = $request->email;
+
+        $user->name = $request->name;
+        $user->password= $request->password;
+
+        $user->save();
+        return redirect()->route('admin.usermanagement.index')->with('success','Cập nhật thông tin thành công.');
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->route('admin.usermanagement.index')->with('success','Xóa thông tin thành công.');
     }
 }

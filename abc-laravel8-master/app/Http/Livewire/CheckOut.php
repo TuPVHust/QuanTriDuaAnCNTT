@@ -114,6 +114,7 @@ class CheckOut extends Component
             if ((null !== $vnp_Bill_State) && $vnp_Bill_State != "") {
                 $inputData['vnp_Bill_State'] = $vnp_Bill_State;
             }
+            dd($inputData);
             ksort($inputData);
             $query = "";
             $i = 0;

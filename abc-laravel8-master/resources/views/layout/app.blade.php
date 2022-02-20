@@ -157,37 +157,19 @@
 
                                         @endif
 
-
-
                                     @else
-
                                         <li class="menu-item"><a title="Register or Login"
                                                 href="{{ route('login') }}">Login</a>
                                         </li>
                                         <li class="menu-item"><a title="Register or Login"
                                                 href="{{ route('register') }}">Register</a></li>
-
                                     @endif
-
-
-
-
-
-
-
                                     @endif
 
                                 </ul>
                             </div>
                         </div>
                     </div>
-
-                    <!--header11111111111111-->
-
-
-
-
-
                     <div class="container">
                         <div class="mid-section main-info-area">
 

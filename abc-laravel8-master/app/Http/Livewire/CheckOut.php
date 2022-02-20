@@ -48,7 +48,7 @@ class CheckOut extends Component
             $vnp_TxnRef = date("YmdHis");//Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
             $vnp_OrderInfo = $this->message;
             $vnp_OrderType = 'billpayment';
-            $vnp_Amount =  Cart::Total();
+            $vnp_Amount =  Cart::Total()*100;
             $vnp_Locale =   'vn';
             $vnp_BankCode = 'NCB';
             $vnp_IpAddr =$_SERVER['REMOTE_ADDR'];
@@ -114,7 +114,7 @@ class CheckOut extends Component
             if ((null !== $vnp_Bill_State) && $vnp_Bill_State != "") {
                 $inputData['vnp_Bill_State'] = $vnp_Bill_State;
             }
-            dd($inputData);
+
             ksort($inputData);
             $query = "";
             $i = 0;
